@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamer Market | High-End PC</title>
+    <style>
+        /* STYLE GÉNÉRAL */
+        body {
+            background-color: #000000; /* Fond noir pur */
+            color: #ffffff;            /* Texte blanc */
+            font-family: 'Inter', sans-serif, Arial;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* NAVIGATION (Les 3 onglets) */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #0a0a0a;
+            padding: 20px;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+        } 
+
+        nav a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #ffffff; /* Le texte devient blanc brillant au survol */
+        }
+
+        /* CONTENU */
+        .section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: none; /* Cache les sections par défaut */
+        }
+
+        .section.active {
+            display: block; /* Affiche la section active */
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 20px; }
+        p { color: #cccccc; line-height: 1.6; }
+
+        /* GRILLE DES PC */
+        .pc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .pc-card {
+            background: #111;
+            border: 1px solid #222;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .pc-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .price {
+            color: #00ffcc;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            display: block;
+        }
+
+        button {
+            background: #ffffff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" onclick="showSection('accueil')" id="link-accueil" class="active">Présentation</a>
+        <a href="#" onclick="showSection('boutique')" id="link-boutique">Nos PC Gamer</a>
+        <a href="#" onclick="showSection('contact')" id="link-contact">Contact</a>
+    </nav>
+
+    <div id="accueil" class="section active">
+        <h1>Bienvenue chez Gamer Market</h1>
+        <p> Nous proposons des configurations de qualité .</p>
+        <p> chaque pc qu'on vous fabrique et testée avant de vous l'envoyer .</p>
+    </div>
+
+    <div id="boutique" class="section">
+        <h1>Nos Configurations</h1>
+        <div class="pc-grid">
+            <div class="pc-card">
+                <img src="oip.jpg"/>
+                <h3>Le Débutant Pro</h3>
+                <p>Ryzen 5 / RTX 4060 / 16GB RAM</p>
+                <span class="price">999 €</span>
+                <button>Voir le détail</button>
+            </div>
+            <div class="pc-card">
+                <img src="oip2.jpg"/>
+                <h3>L'Ultra Gamer</h3>
+                <p>Ryzen 7 / RTX 4080 / 32GB RAM</p>
+                <span class="price">1999 €</span>
+                <button>Voir le détail</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="section">
+        <h1>Contactez-nous</h1>
+        <p>Une question sur une config ? </p>
+        <p>Email : support@gamermarket.com</p>
+        <p>Téléphone : 06 23 45 67 89</p>
+    </div>
+
+    <script>
+        // Petit script pour changer d'onglet sans recharger la page
+        function showSection(id) {
+            // Cacher toutes les sections
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            // Enlever le blanc des liens
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            
+            // Afficher la section demandée
+            document.getElementById(id).classList.add('active');
+            // Mettre le lien en blanc
+            document.getElementById('link-' + id).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
